@@ -1,0 +1,3 @@
+interface ModelListener {
+    fun onFinish()
+}
