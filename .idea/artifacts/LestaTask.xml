@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="LestaTask">
+    <output-path>$PROJECT_DIR$/out/artifacts/LestaTask</output-path>
+    <root id="archive" name="LestaTask.jar">
+      <element id="archive" name="lestatask_main.jar">
+        <element id="module-output" name="lestatask.main" />
+        <element id="directory" name="META-INF">
+          <element id="file-copy" path="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

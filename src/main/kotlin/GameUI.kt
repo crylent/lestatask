@@ -12,6 +12,7 @@ class GameUI: JFrame("Game"), ModelListener {
 
     val model = GameModel().apply { addListener(this@GameUI) }
     private val cells = mutableListOf<MutableList<Cell>>()
+    private val targets = mutableListOf<JPanel>()
 
     init {
         defaultCloseOperation = EXIT_ON_CLOSE
@@ -42,9 +43,9 @@ class GameUI: JFrame("Game"), ModelListener {
         for (x in 0 until FIELD_SIZE) {
             field.add(JPanel().apply {
                 if (model.targetRows.contains(x)) {
-                    background = Cell.colorByType(model.goal[targetNum])
                     border = BorderFactory.createLineBorder(null, 30)
                     targetNum += 1
+                    targets.add(this)
                 }
             })
         }
@@ -79,8 +80,11 @@ class GameUI: JFrame("Game"), ModelListener {
     private fun fillField() {
         for (y in 0 until FIELD_SIZE) {
             for (x in 0 until FIELD_SIZE) {
-                cells[x][y].updateType()
+                cells[x][y].updateType() // update cells
             }
+        }
+        for (i in targets.indices) {
+            targets[i].background = Cell.colorByType(model.goal[i]) // update targets
         }
     }
 
